@@ -1,10 +1,9 @@
---drop table if exists "acc_estimates" cascade;
-CREATE TABLE IF NOT EXISTS "acc_estimates"(
+--drop table if exists "acc_core_estimates" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_estimates"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"title" varchar(255) not null default '' ,
 	"contact_id" integer not null default 0,
@@ -30,16 +29,15 @@ CREATE TABLE IF NOT EXISTS "acc_estimates"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_estimate_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_estimate_items"(
+--drop table if exists "acc_core_estimate_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_estimate_items"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"estimate_id"  integer not null default 0,
 	"description" varchar(255) not null default '' ,
@@ -56,16 +54,15 @@ CREATE TABLE IF NOT EXISTS "acc_estimate_items"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_estimate_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_estimate_files"(
+--drop table if exists "acc_core_estimate_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_estimate_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"estimate_id" integer not null default 0 ,
 	"name" varchar(255) not null default '',
@@ -83,5 +80,5 @@ CREATE TABLE IF NOT EXISTS "acc_estimate_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

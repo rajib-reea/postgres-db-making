@@ -1,10 +1,9 @@
---drop table if exists "acc_credit_notes" cascade;
-CREATE TABLE IF NOT EXISTS "acc_credit_notes"(
+--drop table if exists "acc_core_credit_notes" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_credit_notes"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"credit_note_number" varchar(255) not null default '' ,
 	"invoice_number" varchar(255) not null default '' ,
@@ -30,16 +29,15 @@ CREATE TABLE IF NOT EXISTS "acc_credit_notes"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_credit_note_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_credit_note_items"(
+--drop table if exists "acc_core_credit_note_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_credit_note_items"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"credit_note_id"  integer not null default 0,
 	"description" varchar(255) not null default '' ,
@@ -54,16 +52,15 @@ CREATE TABLE IF NOT EXISTS "acc_credit_note_items"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_credit_note_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_credit_note_files"(
+--drop table if exists "acc_core_credit_note_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_credit_note_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"credit_note_id" integer not null default 0 ,
 	"name" varchar(255) not null default '',
@@ -81,5 +78,5 @@ CREATE TABLE IF NOT EXISTS "acc_credit_note_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

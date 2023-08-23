@@ -1,10 +1,9 @@
---drop table if exists "acc_bank_transactions" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bank_transactions"(
+--drop table if exists "acc_core_bank_transactions" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bank_transactions"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"contact_id" varchar(255) not null default '' ,
 	"type" varchar(255) not null default '' , --debit or credit
@@ -23,16 +22,15 @@ CREATE TABLE IF NOT EXISTS "acc_bank_transactions"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_bank_transaction_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bank_transaction_files"(
+--drop table if exists "acc_core_bank_transaction_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bank_transaction_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bank_transaction_id" integer not null default 0 ,
 	"name" varchar(255) not null default '',
@@ -50,16 +48,15 @@ CREATE TABLE IF NOT EXISTS "acc_bank_transaction_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_bank_transfers" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bank_transfers"(
+--drop table if exists "acc_core_bank_transfers" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bank_transfers"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"from_bank_account" integer not null default 0,
 	"to_bank_account" integer not null default 0,
@@ -77,16 +74,15 @@ CREATE TABLE IF NOT EXISTS "acc_bank_transfers"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_bank_transfer_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bank_transfer_files"(
+--drop table if exists "acc_core_bank_transfer_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bank_transfer_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bank_transfer_id" integer not null default 0 ,
 	"name" varchar(255) not null default '',
@@ -104,16 +100,15 @@ CREATE TABLE IF NOT EXISTS "acc_bank_transfer_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_bank_adjustments" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bank_adjustments"(
+--drop table if exists "acc_core_bank_adjustments" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bank_adjustments"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"account_code" integer not null default 0,
 	"amount" decimal not null default 0.00,
@@ -127,16 +122,15 @@ CREATE TABLE IF NOT EXISTS "acc_bank_adjustments"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_bank_adjustment_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bank_adjustment_files"(
+--drop table if exists "acc_core_bank_adjustment_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bank_adjustment_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bank_adjustment_id" integer not null default 0,
 	"name" varchar(255) not null default '',
@@ -154,5 +148,5 @@ CREATE TABLE IF NOT EXISTS "acc_bank_adjustment_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

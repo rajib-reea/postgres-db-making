@@ -1,10 +1,9 @@
---drop table if exists "acc_journals" cascade;
-CREATE TABLE IF NOT EXISTS "acc_journals"(
+--drop table if exists "acc_core_journals" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_journals"(
 	"id" serial,
-	"sid" varchar(255) not null default '',
+	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"journal_date" timestamp,
 	"journal_number" varchar(255) not null default '' ,
@@ -21,13 +20,12 @@ CREATE TABLE IF NOT EXISTS "acc_journals"(
 	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_journal_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_journal_items"(
+--drop table if exists "acc_core_journal_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_journal_items"(
 	"id" serial,
-	"sid" varchar(255) not null default '',
+	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"journal_id"  integer not null default 0,
 	"account_id" integer not null default 0,
@@ -45,13 +43,12 @@ CREATE TABLE IF NOT EXISTS "acc_journal_items"(
 	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_journal_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_journal_files"(
+--drop table if exists "acc_core_journal_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_journal_files"(
 	"id" serial,
-	"sid" varchar(255) not null default '',
+	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"organization_id" int4 NOT NULL DEFAULT 0,
 	"journal_id" INTEGER NOT NULL DEFAULT 0,
@@ -74,13 +71,12 @@ CREATE TABLE IF NOT EXISTS "acc_journal_files"(
 );
 
 
---drop table if exists "acc_recurring_journals" cascade;
-CREATE TABLE IF NOT EXISTS "acc_recurring_journals"(
+--drop table if exists "acc_core_recurring_journals" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_recurring_journals"(
 	"id" serial,
-	"sid" varchar(255) not null default '',
+	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"profile_name" varchar(255) not null default '' ,
 	"repeat_on" varchar(255) not null default '' ,--15, 30, 60, 90, 180, 360, 720
@@ -100,13 +96,12 @@ CREATE TABLE IF NOT EXISTS "acc_recurring_journals"(
 	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_recurring_journal_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_recurring_journal_items"(
+--drop table if exists "acc_core_recurring_journal_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_recurring_journal_items"(
 	"id" serial,
-	"sid" varchar(255) not null default '',
+	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"journal_id"  integer not null default 0,
 	"account_id" integer not null default 0,

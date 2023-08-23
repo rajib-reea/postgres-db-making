@@ -1,10 +1,9 @@
---drop table if exists "acc_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_items" (
-	id serial4 NOT NULL,
-	sid varchar(255) NOT NULL DEFAULT ''::character varying,
-	udid varchar(255) NOT NULL DEFAULT ''::character varying,
-	iid int4 NOT NULL DEFAULT 0,
-	uid int4 NOT NULL DEFAULT 0,
+--drop table if exists "acc_core_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_items" (
+     "id" serial,
+     "uid" varchar(255) not null default '',
+    "udid" varchar(255) not null default '',
+    "wid" varchar(255) not null default '',
 	"company_id" int4 NOT NULL DEFAULT 0,
 	"item_type" varchar(255) not null default '' , --goods or service
 	"name" varchar(255) not null default '' ,
@@ -33,13 +32,12 @@ CREATE TABLE IF NOT EXISTS "acc_items" (
 	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_item_purchases" cascade;
-CREATE TABLE IF NOT EXISTS "acc_item_purchases"(
-	id serial4 NOT NULL,
-	sid varchar(255) NOT NULL DEFAULT ''::character varying,
-	udid varchar(255) NOT NULL DEFAULT ''::character varying,
-	iid int4 NOT NULL DEFAULT 0,
-	uid int4 NOT NULL DEFAULT 0,
+--drop table if exists "acc_core_item_purchases" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_item_purchases"(
+     "id" serial,
+     "uid" varchar(255) not null default '',
+    "udid" varchar(255) not null default '',
+    "wid" varchar(255) not null default '',
 	"company_id" int4 NOT NULL DEFAULT 0,
 	"item_id"  integer not null default 0,
 	"unit_price" decimal not null default 0.00,
@@ -54,13 +52,12 @@ CREATE TABLE IF NOT EXISTS "acc_item_purchases"(
 	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_item_sales" cascade;
-CREATE TABLE IF NOT EXISTS "acc_item_sales"(
-	id serial4 NOT NULL,
-	sid varchar(255) NOT NULL DEFAULT ''::character varying,
-	udid varchar(255) NOT NULL DEFAULT ''::character varying,
-	iid int4 NOT NULL DEFAULT 0,
-	uid int4 NOT NULL DEFAULT 0,
+--drop table if exists "acc_core_item_sales" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_item_sales"(
+     "id" serial,
+     "uid" varchar(255) not null default '',
+    "udid" varchar(255) not null default '',
+    "wid" varchar(255) not null default '',
 	"company_id" int4 NOT NULL DEFAULT 0,
 	"item_id"  integer not null default 0,
 	"unit_price" decimal  not null default 0.00,

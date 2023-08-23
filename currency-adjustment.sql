@@ -1,10 +1,9 @@
---drop table if exists "acc_currency_adjustments" cascade;
-CREATE TABLE IF NOT EXISTS "acc_currency_adjustments" (
+--drop table if exists "acc_core_currency_adjustments" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_currency_adjustments" (
 	"id" serial,
-	"sid" varchar(255) not null default '',
+	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"currency_id" integer not null default 0,
 	"rate" decimal not null default 0,

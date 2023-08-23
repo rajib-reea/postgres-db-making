@@ -1,11 +1,10 @@
 
---drop table if exists "acc_recurring_expenses" cascade;
-CREATE TABLE IF NOT EXISTS "acc_recurring_expenses"(
+--drop table if exists "acc_core_recurring_expenses" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_recurring_expenses"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"profile_name" varchar(255) not null default '' ,
 	"starts_at" timestamp,
@@ -27,16 +26,15 @@ CREATE TABLE IF NOT EXISTS "acc_recurring_expenses"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_recurring_expense_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_recurring_expense_items"(
+--drop table if exists "acc_core_recurring_expense_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_recurring_expense_items"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"recurring_expense_id"  integer not null default 0,
 	"description" varchar(255) not null default '' ,
@@ -51,5 +49,5 @@ CREATE TABLE IF NOT EXISTS "acc_recurring_expense_items"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

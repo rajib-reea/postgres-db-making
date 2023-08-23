@@ -1,10 +1,9 @@
---drop table if exists "acc_purchase_orders" cascade;
-CREATE TABLE IF NOT EXISTS "acc_purchase_orders" (
+--drop table if exists "acc_core_purchase_orders" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_purchase_orders" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"delivery_address" varchar(255) not null default '' ,
 	"attention_to" varchar(255) not null default '' ,
@@ -16,11 +15,11 @@ CREATE TABLE IF NOT EXISTS "acc_purchase_orders" (
 	"status" varchar(255) not null default '' ,
 	"billed_at" timestamp,
 	"due_at" timestamp,
-	"amount" decimal not null default 0.00, 
-	"tax_amount" decimal not null default 0.00, 
-	"adjustment_amount" decimal not null default 0.00, 
+	"amount" decimal not null default 0.00,
+	"tax_amount" decimal not null default 0.00,
+	"adjustment_amount" decimal not null default 0.00,
 	"currency_code"  integer not null default 0,
-	"currency_rate" decimal not null default 0.00, 
+	"currency_rate" decimal not null default 0.00,
 	"contact_id"  integer not null default 0,
 	"notes" varchar(255) not null default '',
 	"is_active" bool NOT NULL DEFAULT true,
@@ -28,16 +27,15 @@ CREATE TABLE IF NOT EXISTS "acc_purchase_orders" (
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_purchase_order_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_purchase_order_items" (
+--drop table if exists "acc_core_purchase_order_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_purchase_order_items" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"purchase_order_id" integer not null default 0 ,
 	"bill_id" integer not null default 0,
@@ -45,28 +43,27 @@ CREATE TABLE IF NOT EXISTS "acc_purchase_order_items" (
 	"service_id" integer not null default 0,
 	"name" varchar(255) not null default '' ,
 	"sku" varchar(255) not null default '' ,
-	"quantity" integer not null default 0, 
-	"price" decimal not null default 0.00, 
-	"total" decimal not null default 0.00, 
+	"quantity" integer not null default 0,
+	"price" decimal not null default 0.00,
+	"total" decimal not null default 0.00,
 	"tax_id"  integer not null default 0,
-	"tax_amount" decimal not null default  0.00, 
-	"discount_rate" decimal not null default 0.00, 
+	"tax_amount" decimal not null default  0.00,
+	"discount_rate" decimal not null default 0.00,
 	"discount_type" varchar(255) not null default '' ,
 	"is_active" bool NOT NULL DEFAULT true,
 	"is_synced" bool NOT NULL DEFAULT false,
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_purchase_order_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_purchase_order_files"(
+--drop table if exists "acc_core_purchase_order_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_purchase_order_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"purchase_order_id" integer not null default 0 ,
 	"name" varchar(255) not null default '',
@@ -84,5 +81,5 @@ CREATE TABLE IF NOT EXISTS "acc_purchase_order_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

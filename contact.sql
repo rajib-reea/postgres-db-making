@@ -1,10 +1,9 @@
---drop table if exists "acc_contacts" cascade;
-CREATE TABLE IF NOT EXISTS "acc_contacts" (
-	id serial4 NOT NULL,
-	sid varchar(255) NOT NULL DEFAULT ''::character varying,
-	udid varchar(255) NOT NULL DEFAULT ''::character varying,
-	iid int4 NOT NULL DEFAULT 0,
-	uid int4 NOT NULL DEFAULT 0,
+--drop table if exists "acc_core_contacts" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_contacts" (
+     "id" serial,
+     "uid" varchar(255) not null default '',
+    "udid" varchar(255) not null default '',
+    "wid" varchar(255) not null default '',
 	"company_id" int4 NOT NULL DEFAULT 0,
 	"contact_status" varchar(255) not null default '' , --are they in business or not
 	"enabled_for_doing_business"  smallint not null default 1 , --do we do business with this party?
@@ -31,13 +30,12 @@ CREATE TABLE IF NOT EXISTS "acc_contacts" (
 	PRIMARY KEY ("id")
 );
 
---drop table if exists "acc_contact_contact_persons" cascade;
-CREATE TABLE IF NOT EXISTS "acc_contact_contact_persons"(
-	id serial4 NOT NULL,
-	sid varchar(255) NOT NULL DEFAULT ''::character varying,
-	udid varchar(255) NOT NULL DEFAULT ''::character varying,
-	iid int4 NOT NULL DEFAULT 0,
-	uid int4 NOT NULL DEFAULT 0,
+--drop table if exists "acc_core_contact_contact_persons" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_contact_contact_persons"(
+     "id" serial,
+    "uid" varchar(255) not null default '',
+    "udid" varchar(255) not null default '',
+    "wid" varchar(255) not null default '',
 	"company_id" int4 NOT NULL DEFAULT 0,
 	"contact_id"  bigint not null default 0,
 	"first_name" varchar(255) not null default '' ,
@@ -53,13 +51,12 @@ CREATE TABLE IF NOT EXISTS "acc_contact_contact_persons"(
 	PRIMARY KEY ("id")
 );
 
---drop table if exists "acc_contact_financial_details" cascade;
-CREATE TABLE IF NOT EXISTS "acc_contact_financial_details"(
-	id serial4 NOT NULL,
-	sid varchar(255) NOT NULL DEFAULT ''::character varying,
-	udid varchar(255) NOT NULL DEFAULT ''::character varying,
-	iid int4 NOT NULL DEFAULT 0,
-	uid int4 NOT NULL DEFAULT 0,
+--drop table if exists "acc_core_contact_financial_details" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_contact_financial_details"(
+     "id" serial,
+    "uid" varchar(255) not null default '',
+    "udid" varchar(255) not null default '',
+    "wid" varchar(255) not null default '',
 	"company_id" int4 NOT NULL DEFAULT 0,
 	"contact_id" int4 NOT NULL DEFAULT 0,
 	"bin" varchar(255) not null default '' ,
@@ -74,9 +71,9 @@ CREATE TABLE IF NOT EXISTS "acc_contact_financial_details"(
 	"sales_default_line_amount_type" varchar(255) not null default '' , --for example a dozen or a one.
 	"purchases_default_line_amount_type" varchar(255) not null default '' , ----for example a dozen or a one.
 	"batch_payment_enabled" smallint not null default 0 ,
-	"batch_bank_account_no"  varchar(255) not null default '' , 
-	"batch_bank_account_name"  varchar(255) not null default '' , 
-	"batch_bank_details"  varchar(255) not null default '' , 
+	"batch_bank_account_no"  varchar(255) not null default '' ,
+	"batch_bank_account_name"  varchar(255) not null default '' ,
+	"batch_bank_details"  varchar(255) not null default '' ,
 	"balance" decimal not null default 0.00 , --calculated on every transaction
 	"credit_limit" decimal not null default 0.00 ,
 	"block_after_credit_limit" smallint not null default 0 ,

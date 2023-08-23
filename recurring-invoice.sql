@@ -1,10 +1,9 @@
---drop table if exists "acc_recurring_invoices" cascade;
-CREATE TABLE IF NOT EXISTS "acc_recurring_invoices" (
+--drop table if exists "acc_core_recurring_invoices" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_recurring_invoices" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"profile_name" varchar(255) not null default '' ,
 	"contact_id"  integer not null default 0,
@@ -12,13 +11,13 @@ CREATE TABLE IF NOT EXISTS "acc_recurring_invoices" (
 	"ends_at" timestamp,
 	"repeat_on" integer not null default 0,
 	"currency_code"  integer not null default 0,
-	"currency_rate" decimal not null default 0.00, 
+	"currency_rate" decimal not null default 0.00,
 	"payment_term_id" integer not null default 0,
 	"status" varchar(255) not null default '' ,
-	"sub_total" decimal not null default 0.00, 
+	"sub_total" decimal not null default 0.00,
 	"tax_amount" decimal not null default 0.00,
-	"discount" decimal not null default 0.00, 
-	"adjustment" decimal not null default 0.00, 
+	"discount" decimal not null default 0.00,
+	"adjustment" decimal not null default 0.00,
 	"shipping_charge" decimal not null default 0.00,
 	"total" decimal not null default 0.00,
 	"reference" varchar(255) not null default '' ,
@@ -29,33 +28,32 @@ CREATE TABLE IF NOT EXISTS "acc_recurring_invoices" (
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
---drop table if exists "acc_recurring_invoice_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_recurring_invoice_items" (
+--drop table if exists "acc_core_recurring_invoice_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_recurring_invoice_items" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"recurring_invoice_id" integer not null default 0,
 	"item_id" integer not null default 0,
 	"service_id" integer not null default 0,
 	"name" varchar(255) not null default '' ,
 	"sku" varchar(255) not null default '' ,
-	"quantity" integer not null default 0, 
-	"price" decimal not null default 0.00, 
-	"total" decimal not null default 0.00, 
+	"quantity" integer not null default 0,
+	"price" decimal not null default 0.00,
+	"total" decimal not null default 0.00,
 	"tax_id"  integer not null default 0,
-	"tax_amount" decimal not null default  0.00, 
-	"discount_rate" decimal not null default 0.00, 
+	"tax_amount" decimal not null default  0.00,
+	"discount_rate" decimal not null default 0.00,
 	"discount_type" varchar(255) not null default '' ,
 	"is_active" bool NOT NULL DEFAULT true,
 	"is_synced" bool NOT NULL DEFAULT false,
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

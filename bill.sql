@@ -1,21 +1,20 @@
---drop table if exists "acc_bills" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bills" (
+--drop table if exists "acc_core_bills" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bills" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bill_number" varchar(255) not null default '' ,
 	"order_number" varchar(255) not null default '' ,
 	"status" varchar(255) not null default '' ,
 	"billed_at" timestamp,
 	"due_at" timestamp,
-	"amount" decimal not null default 0.00, 
-	"tax_amount" decimal not null default 0.00, 
-	"adjustment_amount" decimal not null default 0.00, 
+	"amount" decimal not null default 0.00,
+	"tax_amount" decimal not null default 0.00,
+	"adjustment_amount" decimal not null default 0.00,
 	"currency_code"  integer not null default 0,
-	"currency_rate" decimal not null default 0.00, 
+	"currency_rate" decimal not null default 0.00,
 	"contact_id"  integer not null default 0,
 	"notes"  varchar(255) not null default '',
 	"is_active" bool NOT NULL DEFAULT true,
@@ -23,47 +22,42 @@ CREATE TABLE IF NOT EXISTS "acc_bills" (
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
-
---drop table if exists "acc_bill_items" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bill_items" (
+--drop table if exists "acc_core_bill_items" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bill_items" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bill_id" integer not null default 0,
 	"item_id" integer not null default 0,
 	"service_id" integer not null default 0,
 	"name" varchar(255) not null default '' ,
 	"sku" varchar(255) not null default '' ,
-	"quantity" integer not null default 0, 
-	"price" decimal not null default 0.00, 
-	"total" decimal not null default 0.00, 
+	"quantity" integer not null default 0,
+	"price" decimal not null default 0.00,
+	"total" decimal not null default 0.00,
 	"tax_id"  integer not null default 0,
-	"tax_amount" decimal not null default  0.00, 
-	"discount_rate" decimal not null default 0.00, 
+	"tax_amount" decimal not null default  0.00,
+	"discount_rate" decimal not null default 0.00,
 	"discount_type" varchar(255) not null default '' ,
 	"is_active" bool NOT NULL DEFAULT true,
 	"is_synced" bool NOT NULL DEFAULT false,
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
-
-
---drop table if exists "acc_bill_histories" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bill_histories" (
+--drop table if exists "acc_core_bill_histories" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bill_histories" (
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bill_id" integer not null default 0,
 	"status" varchar(255) not null default '' ,
@@ -74,19 +68,15 @@ CREATE TABLE IF NOT EXISTS "acc_bill_histories" (
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );
 
-
-
-
---drop table if exists "acc_bill_files" cascade;
-CREATE TABLE IF NOT EXISTS "acc_bill_files"(
+--drop table if exists "acc_core_bill_files" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_bill_files"(
 	"id" serial,
-  	"sid" varchar(255) not null default '',
+  	"uid" varchar(255) not null default '',
   	"udid" varchar(255) not null default '',
-	"iid" integer not null default 0,
-	"uid" integer not null default 0,
+    "wid" varchar(255) not null default '',
 	"company_id" integer not null default 0 ,
 	"bill_id" integer not null default 0 ,
 	"name" varchar(255) not null default '',
@@ -104,5 +94,5 @@ CREATE TABLE IF NOT EXISTS "acc_bill_files"(
 	"created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
-	PRIMARY KEY (id)	
+	PRIMARY KEY (id)
 );

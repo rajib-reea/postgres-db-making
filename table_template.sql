@@ -1,5 +1,5 @@
--drop table if exists "acc_usr_general_preferences" cascade;
-CREATE TABLE IF NOT EXISTS "acc_usr_company_operation_preferences"(
+-drop table if exists "acc_core_usr_general_preferences" cascade;
+CREATE TABLE IF NOT EXISTS "acc_core_usr_company_operation_preferences"(
      "id" serial,
      "uid" varchar(255) not null default '',
     "udid" varchar(255) not null default '',
