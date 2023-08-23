@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_price_lists"(
 	"percentage" decimal not null default 0.00,
 	"roundoff" integer not null default 2,
 	"description" varchar(255) not null default '' ,
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY ("id")

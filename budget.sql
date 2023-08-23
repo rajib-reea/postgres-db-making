@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_budget_categories"(
 	"company_id" integer not null default 0 ,
 	"name" varchar(255) not null default '' , --auto-generated name, for example JAN, 2022
 	"period" integer not null default 0, -- 1, 2, 6, 12
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY (id)
@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_budgets"(
 	"category_id" integer not null default 0 ,
 	"name" varchar(255) not null default '' ,
 	"description" varchar(255) not null default '' ,
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY (id)
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_budget_items"(
 	"actual" decimal not null default 0.00 ,
 	"balance" decimal not null default 0.00,
 	"notes" varchar(255) not null default '',
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY (id)

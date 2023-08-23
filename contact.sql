@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_contacts" (
 	"is_customer" smallint not null default 0 , --customer
 	"tracking_category_name" varchar(255) not null default '' ,
 	"tracking_option_name" varchar(255) not null default '' ,
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY ("id")
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_contact_contact_persons"(
 	"email" varchar(255) not null default '' ,
 	"phone" varchar(255) not null default '' ,
 	"include_in_emails" smallint not null default 0 ,
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY ("id")
@@ -82,9 +82,9 @@ CREATE TABLE IF NOT EXISTS "acc_core_contact_financial_details"(
 	"purchase_dicount_pct" decimal not null default 0.00 ,
 	"bill_due_date_type" smallint not null default 0 , --payment-term-id
 	"invoice_due_date_type" smallint not null default 0 , --payment-term-id
-	"is_active" bool NOT NULL DEFAULT true,
-	"is_synced" bool NOT NULL DEFAULT false,
-	"created_at" timestamp,
+	is_active smallint DEFAULT 0 NOT NULL,
+    is_synced smallint DEFAULT 0 NOT NULL,
+    "created_at" timestamp,
 	"updated_at" timestamp,
 	"deleted_at" timestamp,
 	PRIMARY KEY ("id")
